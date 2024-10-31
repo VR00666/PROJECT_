@@ -133,7 +133,7 @@ def add():
     while True:
         pid = input("Enter product ID: ")
         pname = input("Enter the name of the product: ")
-        manufac = input("Enter name of the manufacturer: ")
+        manufac = input("Enter name of the company: ")
         
         warranty = input("Enter warranty details: ")
         
@@ -194,6 +194,8 @@ PRESS 6 : TO EXIT\n''')
             print('Invalid option. Please try again.')
     except ValueError:
         print("Invalid input. Please enter a number between 1 and 6.")
+
+
 
 
 
