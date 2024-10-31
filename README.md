@@ -2,10 +2,13 @@ import mysql.connector as mysql
 mycon=mysql.connect(host="localhost",user="root",passwd="MySQL",database="electronics")
 mycur=mycon.cursor()
 def Disp():
+    
     mycur.execute("select * from table_1")
     goods = mycur.fetchall()
+    print("PID   PNAME  COMPANY    WARRANTY    PRICE")
     for i in goods:
-        print('\n',i)
+        print('\n',i[0],'\t',i[1],'\t',i[2],'\t','\t', i[3],'\t',i[4])
+
 
 def delete():
     while True:
@@ -13,7 +16,7 @@ def delete():
         mycur.execute("delete from table_1 where PID='{}'".format(c))
         mycon.commit()
         print(f"Deleted goods ID {c} from the database.")
-        another = input("Do you want to add another product? (yes/no): ")
+        another = input("Do you want to delete another product? (yes/no): ")
         if another .lower()=='no':
             break
 def update():
@@ -182,7 +185,7 @@ PRESS 6 : TO EXIT\n''')
         elif op == 5:
             process_orders()
         elif op == 6:
-            print('\nExiting the program')
+            
             print("____________________________"
       "\n \t 𝗧𝗛𝗔𝗡𝗞 𝗬𝗢𝗨"
       "\n_____________________________")
@@ -191,4 +194,6 @@ PRESS 6 : TO EXIT\n''')
             print('Invalid option. Please try again.')
     except ValueError:
         print("Invalid input. Please enter a number between 1 and 6.")
+
+
 
